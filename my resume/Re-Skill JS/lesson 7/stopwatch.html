@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: steelblue;
+    }
+    .box {
+        height: 220px;
+        width: 30%;
+        border: 1px solid red;  
+        text-align: center;
+        background-color: white;
+        border-radius: 15px 45px 15px 45px;
+    }
+    h2 {
+        margin-top: 20px;
+        color: green;
+        font-size: 25px;
+        font-weight: 800;
+    }
+    h1 {
+        margin-block: 20px;
+        font-size: 59px;
+    }
+    button {
+        padding: 8px 14px;
+        font-size: 18px;
+        margin-left: 15px;
+        border: none;
+    }
+   
+
+</style>
+<body>
+    
+    <div class="box">
+        <h2> Stopwatch </h2> 
+        <h1 id="timerPrint"> 00 : 00 : 00 </h1>
+
+        <button onclick="start()" style="background-color: green; color: white;"> start </button>
+        <button onclick="stop()" style="background-color: red; color: white;"> stop </button>
+        <button style="background-color: steelblue; color: white;"> resume </button>
+    </div>
+
+
+
+    <script>
+        var isStop = true;
+        var sec = 0;
+        var min = 0;
+        var hur = 0;
+        //var timerPrint = document.getElementById("timer");
+
+        let currentTime = new Date().toLocaleString();
+        console.log(currentTime);
+
+        function start() {
+            console.log("starting");
+
+            if(isStop == true) {
+                isStop = false;
+                timer();
+            }
+        }
+
+        function timer() {
+        
+
+            if(isStop == false) {
+
+                sec = parseInt(sec);
+                min = parseInt(min);
+                hur = parseInt(hur);
+
+                sec ++;
+                console.log(sec);
+
+                if(sec == 60) {
+                    sec = 0;
+                    min ++;
+                }
+
+                if(min == 60) {
+                    min = 0;
+                    hur ++;
+                }
+
+                if(sec < 10) {
+                    sec = "0" + 5;
+                }
+
+
+                timerPrint.innerHTML = hur + " : " + min + " : " + sec;
+
+                setTimeout("timer()", 1000);
+            } 
+        }
+
+        function stop() {
+            console.log("stop");
+
+            isStop == true;
+        }
+
+    </script>
+</body>
+</html>

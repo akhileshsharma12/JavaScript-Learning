@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Cart </title>
+</head>
+<style>
+    .button-box {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+
+    .button-box button {
+        padding: 4px 15px;
+        font-size: 17px;
+        font-weight: 500;
+    }
+
+    button:nth-child(1),
+    button:nth-child(3) {
+        border: none;
+        background-color: rgb(165, 247, 165);
+        border-radius: 8px;
+    }
+
+    button:nth-child(2) {
+        padding: 8px 35px;
+        border-radius: 8px;
+        background-color: #fff;
+    }
+
+    h2 {
+        margin-left: 30px;
+    }
+
+    span {
+        font-size: 30px;
+        margin: 0 10px;
+    }
+
+    @media (max-width: 530px) {
+        body {
+            background-color: antiquewhite;
+        }
+
+        .button-box button {
+            padding: 4px 15px;
+            font-size: 17px;
+            font-weight: 500;
+        }
+    }
+
+    @media (max-width: 470px) {
+        body {
+            background-color: antiquewhite;
+        }
+
+        .button-box button {
+            padding: 4px 15px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+    }
+
+    @media (max-width: 400px) {
+
+        .button-box {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          align-items: center;
+        }
+
+        .button-box button {
+            padding: 4px 15px;
+            font-size: 16px;
+            font-weight: 500;
+            width: 100%;
+        }
+    }
+</style>
+
+<body>
+
+    <div class="button-box">
+        <button id="btn-one" onclick="updation()"> Add to Bag </button>
+        <button id="btn-two" onclick="clearAll()"> Move to WishList </button>
+        <button id="btn-three" onclick="updationPlus()"> Add 1 + 1 Sale Item </button>
+    </div>
+
+    <h2 id="sentence"> Your cart has <span id="updateNumber"> 0 </span> items.</h2>
+
+    <h2 id="naming"> </h2>
+
+    <script>
+        let updateNum = document.getElementById("updateNumber");
+        let sentence = document.getElementById("sentence");
+        let itemCount = 0;
+
+        function updation() {
+            itemCount++;
+            updateNum.innerHTML = itemCount;
+        }
+
+        const updationPlus = () => {
+            itemCount += 2;
+            updateNum.innerHTML = itemCount;
+        }
+
+        function clearAll() {
+            if (itemCount === 0) {
+                sentence.innerText = "Empty ! Please Add Something in Cart";
+                setTimeout(function () {
+                    sentence.innerHTML = `Your cart has 0 items`;
+                }, 2000);
+            }
+            else {
+                sentence.innerText = "Cart items has moved to WishList";
+                setTimeout(() => {
+                    sentence.innerText = "Your cart has 0 items.";
+                }, 5000);
+                setTimeout(() => {
+                    sentence.innerText = "Thanks for Shopping !";
+                }, 2000);
+            }
+        }
+
+
+
+    </script>
+
+    <script src="first.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
+        /* Center vertically */
+    }
+
+    .bulb {
+        height: 220px;
+        width: 160px;
+        border: 2px solid #444;
+        border-radius: 80px;
+        /* Rounded corners for bulb shape */
+        background-color: white;
+        /* Initial color */
+    }
+
+    button {
+        margin-top: 20px;
+        margin-left: 150px;
+        padding: 7px 30px;
+        font-size: 16px;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <div class="bulb"> </div>
+    </div>
+
+    <button id="button"> Click </button>
+
+
+    <script>
+       let bulb = document.querySelector(".bulb");
+       let btn = document.getElementById("button");
+       let changeState = 1;
+
+       console.log(bulb);
+       console.log(btn);
+
+      btn.addEventListener("click", function () {
+        if(changeState == 1) {
+            bulb.style.backgroundColor = "yellow";
+            changeState = 0;
+            console.log(changeState);
+        }
+        else {
+            bulb.style.backgroundColor = "white";
+            changeState = 1;
+            console.log(changeState);
+        }
+      })
+    
+
+
+
+
+
+    </script>
+</body>
+
+</html>

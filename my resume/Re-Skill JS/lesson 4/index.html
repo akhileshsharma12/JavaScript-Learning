@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: #222;
+        color: #fff;
+    }
+    #one {
+        margin-top: 3rem;
+    }
+    input {
+        text-align: center;
+        padding: .5rem .2rem;
+        border: none;
+        outline: none;
+    }
+    .result {
+        color: #fff;
+        font-size: 19px;
+    }
+</style>
+<body>
+
+    <center id="zero">
+        <h2 id="topMostHeading"> Explore The World of JavaScript </h2>
+        <h1 id="topHeading"> EcmaScript </h1>
+
+        <button onclick="changeFormat()"> Click Me </button> <br><br>
+        <button id="btnn"> Click Over </button> <br><br>
+        <input type="text" id="getText" placeholder="Enter Something" >
+        <div class="result">
+            
+        </div>
+    </center>
+
+    <center id="one">
+        <h2> Ecma association presents - </h2>
+        <p id="pOne"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam qui dolore illo voluptate nam natus veniam iusto facilis et err or eveniet eaque quisquam, quis quidem ut ea! Repellat, vitae numquam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos aspernatur cumque minima autem  <br><br> labore sed perspiciatis dolor. Quisquam harum assumenda ducimus nihil. Animi id doloremque ea, odio quia harumperspiciatis aut totam enim aliquam, velit suscipit ex, rerum quis temporibus assumenda dolorem qui rem accusamus? Eveniet, quod! Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit cupiditate rem autem nihil rerum quo quis quia facere natus molestiae exercitationem illo ipsa, maiores, dolorem tenetur sequi porro debitis pariatur? </p>
+
+        <p id="pTwo"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor minima maxime similique laboriosam. Vel nisi praesentium, a ex consectetur explicabo dolor dicta dignissimos odit nesciunt. Incidunt excepturi exercitationem corporis harum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, quos beatae? Quasi unde modi debitis facere voluptate sint eum veritatis aspernatur qui quisquam, alias deleniti, obcaecati libero repellendus aut eveniet. </p>
+    </center>
+
+
+    <script>
+        let topHead = document.getElementById("topHeading");
+        let para1 = document.querySelector("#pOne");
+        let para2 = document.querySelector("#pTwo");
+        let count = 1;
+        let inputText = document.getElementById("getText").value;
+        console.log(inputText);
+
+        // inputText.addEventListener('input', function () {
+        //     let textValue = inputText.value.toUpperCase();
+        //     console.log(textValue);
+        //     let reflectValue = document.querySelector('.result');
+        //     reflectValue.innerHTML = textValue;
+        //     console.log(reflectValue);
+        // })
+
+    
+
+        topHead.style.color = "yellow";
+        para1.style.color = "#fff";
+        para2.style.color = "#fff";
+
+        setTimeout(function () {
+            topHead.style.color = "crimson";
+            topHead.style.borderBottom = "2px solid yellow";
+        }, 3000);
+
+        topHead.addEventListener("click", function () {
+            topHead.style.color = "yellow";
+        })
+
+        function changeFormat() {
+            if(count == 1) {
+                para1.style.color = "#74744d";
+                para2.style.color = "#74744d";
+                count = 0;
+            }
+            else {
+                para1.style.color = "crimson";
+                para2.style.color = "crimson";
+                count = 1;
+            }
+        }
+
+        document.getElementById("btnn").addEventListener("click", function () {
+            document.getElementById("btnn").style.backgroundColor = "#74744d";
+            document.getElementById("btnn").style.color = "#fff";
+        })
+          
+
+    </script>
+</body>
+</html>

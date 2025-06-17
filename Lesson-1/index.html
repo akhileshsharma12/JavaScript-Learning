@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Cards</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0 auto;
+            padding: 20px 0;
+            width: 100%;
+            background-color: #222;
+            gap: 20px;
+        }
+
+        .card-1 {
+            width: 265px;
+            height: 420px;
+            background-color: #444;
+            color: white;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-1 img {
+            width: 100%;
+            height: 170px;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        .card-1 .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            background-color: rgb(7, 114, 114);
+            color: white;
+            padding: 5px 10px;
+            font-size: 19px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .card-1 .title {
+            font-size: 21px;
+            margin: 10px 0 5px;
+        }
+
+        .card-1 .des {
+            font-size: 14px;
+            color: #e3e0e0;
+        }
+
+        .search-bar {
+            width: 100%;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            background-color: black;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .search-bar input {
+            width: 300px;
+            height: 28px;
+            border-radius: 5px;
+            padding: 3px 10px;
+        }
+
+        #not-found {
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search-bar">
+        <input type="text" placeholder="Search anything here ..." id="search">
+    </div>
+
+    <div id="not-found">No product found</div>
+
+    <br><br><br><br>
+
+    <div class="main"></div>
+
+    <script>
+        const mainContainer = document.querySelector('.main');
+        const searchInput = document.getElementById('search');
+        const notFoundMessage = document.getElementById('not-found');
+
+        // Fetch products and render them
+        async function fetchProducts() {
+            try {
+                const response = await fetch('https://dummyjson.com/products?limit=100');
+                const data = await response.json();
+                renderProducts(data.products);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        }
+
+        // Render products dynamically
+        function renderProducts(products) {
+            mainContainer.innerHTML = ''; 
+            products.forEach(product => {
+                mainContainer.innerHTML += `
+                    <div class="card-1">
+                        <img class="img" src="${product.thumbnail}" alt="${product.title}">
+                        <h2 class="title">${product.title}</h2>
+                        <p class="des">${product.description}</p>
+                        <div class="info-row">
+                            <span class="price">$${product.price}</span>
+                            <span class="rating">⭐ ${product.rating}</span>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        searchInput.addEventListener('keyup', function (e) {
+            let searchValue = e.target.value.toLowerCase();
+            let cards = document.querySelectorAll('.card-1');
+
+            cards.forEach(card => {
+                let title = card.querySelector('.title').innerText.toLowerCase();
+                if(title.includes(searchValue)) {
+                    card.style.display = "block";
+                }
+                else {
+                    card.style.display = "none";
+                }
+            })
+        })
+
+
+
+        
+        fetchProducts();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calsi Calculator</title>
+</head>
+<style>
+    body {
+        height: 100vh;
+        background-color: rgb(180, 186, 192);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .frame {
+        height: 450px;
+        width: 350px;
+        background-color: #fafafa;
+        border-radius: 5px;
+        box-shadow: 5px 5px 15px #68cdca, -5px -5px 10px #ffffff;
+        padding: 20px 20px;
+    }
+    .frame p {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .display {
+        /* padding: 0 12px 0 5px; */
+        box-sizing: border-box;
+    }
+    .display input{
+        height: 60px;
+        width: 100%;
+        border: none; outline: none;
+        box-shadow: 2px 2px 10px #b4edf4, -5px -5px 10px #ffffff;
+        font-size: 25px;
+        text-align: right;
+        background: white;
+        box-sizing: border-box;
+    }
+    .buttons-group {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 25px;
+    }
+    .button {
+        width: 61px;
+        height: 55px;
+        font-size: 20px;
+        background-color: #fff;
+        border: none; outline: none;
+        box-shadow: 5px 5px #b6acac, -5px -5px 10px #fafaf4;
+    }
+    .button:active {
+        box-shadow: inset 1px 1px 2px #babeec, inset -1px -1px 2px #ffffff;
+    }
+    .button:hover {
+        background-color: red;
+        color: #fff;
+        cursor: pointer;
+    }
+    #unique {
+        background-color: #3cb7b3;
+        color: #fff;
+    }
+    #danger {
+        background-color: rgb(251, 79, 79);
+        color: #fff;
+    }
+    
+    
+</style>
+<body>
+
+    <div class="frame">
+        <p> Calsi Calculator </p>
+        <div class="display">
+            <input type="text" id="inputField" disabled>    
+        </div>
+        <div class="buttons-group">
+            <input class="button" type="button" value="9" onclick="inputField.value += '9'">
+            <input class="button" type="button" value="8" onclick="inputField.value += '8'">
+            <input class="button" type="button" value="7" onclick="inputField.value += '7'">
+            <input class="button" id="unique" type="button" value="+" onclick="inputField.value += '+'">
+        </div>
+        <div class="buttons-group">
+            <input class="button" type="button" value="6" onclick="inputField.value += '6'">
+            <input class="button" type="button" value="5" onclick="inputField.value += '5'">
+            <input class="button" type="button" value="4" onclick="inputField.value += '4'">
+            <input class="button" id="unique" type="button" value="-" onclick="inputField.value += '-'">
+        </div>
+        <div class="buttons-group">
+            <input class="button" type="button" value="3" onclick="inputField.value += '3'">
+            <input class="button" type="button" value="2" onclick="inputField.value += '2'">
+            <input class="button" type="button" value="1" onclick="inputField.value += '1'">
+            <input class="button" id="unique" type="button" value="x" onclick="inputField.value += '*'">
+        </div>
+        <div class="buttons-group">
+            <input class="button" id="danger" type="button" value="C" onclick="inputField.value = ''">   
+            <input class="button" type="button" value="0" onclick="inputField.value += '0'">
+            <input class="button" id="danger" type="button" value="/" onclick="inputField.value += '/'">
+            <input class="button" id="unique" type="button" value="=" onclick="inputField.value = eval(inputField.value)">
+        </div>
+    </div>
+
+    
+
+    <script>
+        
+       
+
+
+
+    </script>
+</body>
+</html>

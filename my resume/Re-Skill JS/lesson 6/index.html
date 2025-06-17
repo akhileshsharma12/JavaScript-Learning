@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: cursive;
+    }
+    body {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #222;
+        color: #fff;
+    }
+    h1 {
+        color: crimson;
+    }
+    .box {
+        padding: 30px;
+        border-radius: 10px;
+        width: fit-content;
+        background-color: #555;
+        box-shadow: 5px 5px 8px;
+    }
+    input {
+        padding: 6px 10px;
+    }
+    input[type="button"] {
+        background-color: #222;
+        color: #fff;
+        padding: 8px 10px;
+    }
+</style>
+<body>
+    <div class="box">
+        <h1> Age Calculator </h1>
+        <br>
+        <label for=""> Current Data </label>
+        <input type="date" id="cd">
+
+        <label for=""> Date of Birth </label>
+        <input type="date" id="dob">
+
+        <input type="button" value="Check Age" onclick="calculate()">
+        <br><br><hr><br>
+
+        <p> Age : <span id="ageText">  </span> </p>
+    </div>
+
+
+
+    <script>
+        function calculate() {
+
+            let year;
+            let month;
+            let day;
+
+            let currentDay = parseInt( cd.value.slice(8,10), 10);
+            let currentMonth = parseInt( cd.value.slice(5,7), 10);
+            let currentYear = parseInt( cd.value.slice(0,4), 10);
+
+            console.log(currentYear,currentMonth,currentDay);
+
+            let birthDay = parseInt( dob.value.slice(8,10), 10);
+            let birthMonth = parseInt( dob.value.slice(5,7), 10);
+            let birthYear = parseInt( dob.value.slice(0,4), 10);
+
+            console.log(birthYear,birthMonth,birthDay);   
+
+            if(currentDay >= birthDay) {
+                day = currentDay = birthDay;
+            }
+            else {
+                day = currentDay + new Date(currentYear,currentMonth).getDate() - birthDay;
+                currentMonth --;
+            }
+
+            if(currentMonth >= birthMonth) {
+                month = currentMonth - birthMonth
+            }
+            else {
+                month = currentMonth + 12 - birthMonth;
+                year --;
+            }
+
+            year = currentYear - birthYear;
+
+            if(year < 0) {
+                ageText.innerHTML = "Kya majak kar rahe ho yaar, Sahi date daalo";
+            }
+            else {
+                ageText.innerHTML = year + " years, " + month + " months, " + day + " day ";
+            }
+        }
+
+
+    </script>
+
+</body>
+</html>
