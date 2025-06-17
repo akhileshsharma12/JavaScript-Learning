@@ -12,5 +12,12 @@ const books = [
 
 const filter = books.filter(book => book.year < 1950);
 
-console.log(filter);
+// console.log(filter);
 
+function reverceString(str) {
+    return str.split('').reverse().join('');
+}
+
+let reverce = reverceString("Hello World");
+
+console.log(reverce);
