@@ -17,3 +17,5 @@ try {
 catch (error) {
     console.log(error);
 }
+
+// added little of promise 
