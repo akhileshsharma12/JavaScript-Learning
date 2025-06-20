@@ -1,13 +1,19 @@
-let isQualified = true;
-
 try {
-    if(!isQualified) {
-        console.log('Congratulations! You are qualified.');
+    let student = {
+        name: 'Akhilesh',
+        age: 22,
+        role: 'student'
+    }
+
+    let statusCode = 200;
+
+    if(statusCode === 200) {
+        console.log("Data fetched successfully :", student);
     }
     else {
-        console.log('Sorry! You are not qualified.');
+        throw new Error('Error: while fetching data');
     }
 }
-catch(error) {
-    console.log('Error :', error);
+catch (error) {
+    console.log(error);
 }
