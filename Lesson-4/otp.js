@@ -12,3 +12,8 @@ let yourOtp = function () {
 }
 
 console.log("Your OTP is: " + yourOtp());
+
+// This is the otp generator program. 
+
+
+  

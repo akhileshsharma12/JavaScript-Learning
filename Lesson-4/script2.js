@@ -1,5 +1,10 @@
-console.error("This is an error message");
 
-console.warn("This is a warning message");
+let i = 1;
+while (i <= 20) {
+    console.log("This is iteration number: " + i);
+    i ++;
 
-console.info('This is an info message');
+    if( i === 12 ) {
+        break;
+    }
+}
