@@ -1,7 +1,10 @@
 
-let i = 10;
+let i = 1;
 
-while ( i > 0) {
-    console.log(i);
-    i --;
+while( i <= 15 ) {
+    if( i%2 !== 0 ) {
+        console.log("Odd Numbers : " + i);
+    }
+
+    i++;
 }
