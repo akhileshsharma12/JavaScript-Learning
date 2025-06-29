@@ -1,10 +1,7 @@
 
-let i = 1;
-while (i <= 20) {
-    console.log("This is iteration number: " + i);
-    i ++;
+let sum = 0 ;
 
-    if( i === 12 ) {
-        break;
-    }
+for(let i = 1; i <= 100; i ++) {
+    sum += i
 }
+console.log(sum);
